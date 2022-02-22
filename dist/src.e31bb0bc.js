@@ -24304,7 +24304,7 @@ var SOCIALDATA = [{
   id: 2,
   title: 'github',
   description: 'Personal github account',
-  link: 'https://github.com/',
+  link: 'https://github.com/ngyongkang',
   image: _github_icon.default
 }, {
   id: 3,
@@ -24769,7 +24769,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49694" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49703" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
