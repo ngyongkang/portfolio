@@ -23,7 +23,7 @@ const SOCIALDATA = [
         id: 2,
         title: 'github',
         description: 'Personal github account',
-        link: 'https://github.com/',
+        link: 'https://github.com/ngyongkang',
         image: social2
     },
     {
