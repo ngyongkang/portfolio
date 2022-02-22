@@ -24484,17 +24484,38 @@ var Title = /*#__PURE__*/function (_Component) {
     _this = _super.call.apply(_super, [this].concat(args));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
-      titleIndex: 0
+      titleIndex: 0,
+      fadeIn: true
     });
 
     _defineProperty(_assertThisInitialized(_this), "animateTitles", function () {
       //Setting setInterval method to a local variable.
       _this.titleInterval = setInterval(function () {
+        /*The following line is used to change the number inside
+         *the titleIndex by 1. The modular (%) portion is to
+         *prevent the index from going out of bounds.
+        */
         var titleIndex = (_this.state.titleIndex + 1) % TITLES.length;
+        /*
+         *By using the setstate method on the titleIndex variable 
+         *we are able to cycle through the titles in the TITLES array by 
+         *changing the number inside the variable.
+         *
+         *By setting the fadeIn variable to true everytime the state
+         *changes the fadeIn effect will carry out essentially bringing
+         *back the object with a fade in effect.
+        */
 
         _this.setState({
-          titleIndex: titleIndex
+          titleIndex: titleIndex,
+          fadeIn: true
         });
+
+        _this.titleTimeout = setTimeout(function () {
+          return _this.setState({
+            fadeIn: false
+          });
+        }, 2000);
       }, 4000); //console.log('thistitleInterval',this.titleInterval);
     });
 
@@ -24505,8 +24526,20 @@ var Title = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: //Example componentDidMount() method
     function componentDidMount() {
+      var _this2 = this;
+
       //console.log('Title component has mounted');
-      //Using local method.
+
+      /*The line below sets the timer of the created fading effect.
+       *Using the setTimeout method we can change the state of an object
+       *after the given time has finished. 
+      */
+      this.titleTimeout = setTimeout(function () {
+        return _this2.setState({
+          fadeIn: false
+        });
+      }, 2000); //Using local method.
+
       this.animateTitles();
     } //Example componentWillUnmount() method
 
@@ -24516,13 +24549,24 @@ var Title = /*#__PURE__*/function (_Component) {
       //console.log('Title component will unmount!');
       //Helps to clear the queued timer and prevent memory leaking.
       clearInterval(this.titleInterval);
+      clearTimeout(this.titleTimeout);
     } //Local method to animate titles.
 
   }, {
     key: "render",
     value: function render() {
-      var title = TITLES[this.state.titleIndex];
-      return /*#__PURE__*/_react.default.createElement("p", null, "I am ", title);
+      var _this$state = this.state,
+          fadeIn = _this$state.fadeIn,
+          titleIndex = _this$state.titleIndex;
+      var title = TITLES[titleIndex];
+      return (
+        /*#__PURE__*/
+        //Adding the className to the paragraph with the created 'fade' css
+        //We now have a fading effect on our title !! ^^
+        _react.default.createElement("p", {
+          className: fadeIn ? 'title-fade-in' : 'title-fade-out'
+        }, "I am ", title)
+      );
     }
   }]);
 
@@ -24800,7 +24844,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62488" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49881" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
