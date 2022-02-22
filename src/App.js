@@ -68,7 +68,7 @@ class App extends Component
                 <img src={profile} alt='profile' className="profile"/>
                 <h1>Hello!</h1>
                 <p>My name is Ng Yong Kang.</p>
-                <Title/>
+                {this.state.displayBio ? <Title/>:null}
                 <p>I hope to learn valuable skills from this ReactJS course. :)</p>
                 {
                     this.state.displayBio ? (

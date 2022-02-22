@@ -9,20 +9,32 @@ const TITLES = [
 class Title extends Component{
     state = {titleIndex: 0};
 
-    //Example compoenetDidMount() method
+    //Example componentDidMount() method
     componentDidMount(){
-        console.log('Title component has mounted');
+        //console.log('Title component has mounted');
 
         //Using local method.
         this.animateTitles();
     }
+
+    //Example componentWillUnmount() method
+    componentWillUnmount(){
+        //console.log('Title component will unmount!');
+
+        //Helps to clear the queued timer and prevent memory leaking.
+        clearInterval(this.titleInterval);
+    }
+
     //Local method to animate titles.
     animateTitles = () => {
-        setInterval(() => {
+        //Setting setInterval method to a local variable.
+        this.titleInterval = setInterval(() => {
             const titleIndex = (this.state.titleIndex + 1) % TITLES.length;
 
             this.setState({titleIndex});
         },4000);
+
+        //console.log('thistitleInterval',this.titleInterval);
     }
 
     render(){

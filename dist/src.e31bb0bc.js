@@ -24488,13 +24488,14 @@ var Title = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "animateTitles", function () {
-      setInterval(function () {
+      //Setting setInterval method to a local variable.
+      _this.titleInterval = setInterval(function () {
         var titleIndex = (_this.state.titleIndex + 1) % TITLES.length;
 
         _this.setState({
           titleIndex: titleIndex
         });
-      }, 4000);
+      }, 4000); //console.log('thistitleInterval',this.titleInterval);
     });
 
     return _this;
@@ -24502,11 +24503,19 @@ var Title = /*#__PURE__*/function (_Component) {
 
   _createClass(Title, [{
     key: "componentDidMount",
-    value: //Example compoenetDidMount() method
+    value: //Example componentDidMount() method
     function componentDidMount() {
-      console.log('Title component has mounted'); //Using local method.
-
+      //console.log('Title component has mounted');
+      //Using local method.
       this.animateTitles();
+    } //Example componentWillUnmount() method
+
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      //console.log('Title component will unmount!');
+      //Helps to clear the queued timer and prevent memory leaking.
+      clearInterval(this.titleInterval);
     } //Local method to animate titles.
 
   }, {
@@ -24611,7 +24620,7 @@ var App = /*#__PURE__*/function (_Component) {
         src: _profile.default,
         alt: "profile",
         className: "profile"
-      }), /*#__PURE__*/_react.default.createElement("h1", null, "Hello!"), /*#__PURE__*/_react.default.createElement("p", null, "My name is Ng Yong Kang."), /*#__PURE__*/_react.default.createElement(_Title.default, null), /*#__PURE__*/_react.default.createElement("p", null, "I hope to learn valuable skills from this ReactJS course. :)"), this.state.displayBio ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "I live in Singapore and I just got hired as a programmer."), /*#__PURE__*/_react.default.createElement("p", null, "My main language is Java and I am currently learning React JS."), /*#__PURE__*/_react.default.createElement("p", null, "I don't really like coding much but these are some things I do like"), /*#__PURE__*/_react.default.createElement("p", null, "gaming, anime, kdrama, my family and of course girls"), /*#__PURE__*/_react.default.createElement("button", {
+      }), /*#__PURE__*/_react.default.createElement("h1", null, "Hello!"), /*#__PURE__*/_react.default.createElement("p", null, "My name is Ng Yong Kang."), this.state.displayBio ? /*#__PURE__*/_react.default.createElement(_Title.default, null) : null, /*#__PURE__*/_react.default.createElement("p", null, "I hope to learn valuable skills from this ReactJS course. :)"), this.state.displayBio ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "I live in Singapore and I just got hired as a programmer."), /*#__PURE__*/_react.default.createElement("p", null, "My main language is Java and I am currently learning React JS."), /*#__PURE__*/_react.default.createElement("p", null, "I don't really like coding much but these are some things I do like"), /*#__PURE__*/_react.default.createElement("p", null, "gaming, anime, kdrama, my family and of course girls"), /*#__PURE__*/_react.default.createElement("button", {
         onClick: this.toggleBio
       }, "Show less")) : /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
         onClick: this.toggleBio
@@ -24788,7 +24797,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49703" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62488" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
