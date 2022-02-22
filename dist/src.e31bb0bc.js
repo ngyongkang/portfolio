@@ -24465,7 +24465,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var TITLES = ['a software engineer', 'an anime lover', 'a nerdy boy'];
+var TITLES = ['a software engineer', 'an anime lover', 'interested in all things nerdy'];
 
 var Title = /*#__PURE__*/function (_Component) {
   _inherits(Title, _Component);
@@ -24487,10 +24487,29 @@ var Title = /*#__PURE__*/function (_Component) {
       titleIndex: 0
     });
 
+    _defineProperty(_assertThisInitialized(_this), "animateTitles", function () {
+      setInterval(function () {
+        var titleIndex = (_this.state.titleIndex + 1) % TITLES.length;
+
+        _this.setState({
+          titleIndex: titleIndex
+        });
+      }, 4000);
+    });
+
     return _this;
   }
 
   _createClass(Title, [{
+    key: "componentDidMount",
+    value: //Example compoenetDidMount() method
+    function componentDidMount() {
+      console.log('Title component has mounted'); //Using local method.
+
+      this.animateTitles();
+    } //Local method to animate titles.
+
+  }, {
     key: "render",
     value: function render() {
       var title = TITLES[this.state.titleIndex];
