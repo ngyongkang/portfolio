@@ -24615,12 +24615,15 @@ var App = /*#__PURE__*/function (_Component) {
 
   _createClass(App, [{
     key: "render",
-    value: function render() {
+    value: //The line below can be put into where the <Title/> is to
+    //test the componentWillUnmount method.
+    //{this.state.displayBio ? <Title/>:null}
+    function render() {
       return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
         src: _profile.default,
         alt: "profile",
         className: "profile"
-      }), /*#__PURE__*/_react.default.createElement("h1", null, "Hello!"), /*#__PURE__*/_react.default.createElement("p", null, "My name is Ng Yong Kang."), this.state.displayBio ? /*#__PURE__*/_react.default.createElement(_Title.default, null) : null, /*#__PURE__*/_react.default.createElement("p", null, "I hope to learn valuable skills from this ReactJS course. :)"), this.state.displayBio ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "I live in Singapore and I just got hired as a programmer."), /*#__PURE__*/_react.default.createElement("p", null, "My main language is Java and I am currently learning React JS."), /*#__PURE__*/_react.default.createElement("p", null, "I don't really like coding much but these are some things I do like"), /*#__PURE__*/_react.default.createElement("p", null, "gaming, anime, kdrama, my family and of course girls"), /*#__PURE__*/_react.default.createElement("button", {
+      }), /*#__PURE__*/_react.default.createElement("h1", null, "Hello!"), /*#__PURE__*/_react.default.createElement("p", null, "My name is Ng Yong Kang."), /*#__PURE__*/_react.default.createElement(_Title.default, null), /*#__PURE__*/_react.default.createElement("p", null, "I hope to learn valuable skills from this ReactJS course. :)"), this.state.displayBio ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "I live in Singapore and I just got hired as a programmer."), /*#__PURE__*/_react.default.createElement("p", null, "My main language is Java and I am currently learning React JS."), /*#__PURE__*/_react.default.createElement("p", null, "I don't really like coding much but these are some things I do like"), /*#__PURE__*/_react.default.createElement("p", null, "gaming, anime, kdrama, my family and of course girls"), /*#__PURE__*/_react.default.createElement("button", {
         onClick: this.toggleBio
       }, "Show less")) : /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
         onClick: this.toggleBio

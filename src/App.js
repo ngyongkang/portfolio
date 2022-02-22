@@ -60,7 +60,9 @@ class App extends Component
         */
         this.setState({displayBio: !this.state.displayBio});
     }
-
+    //The line below can be put into where the <Title/> is to
+    //test the componentWillUnmount method.
+    //{this.state.displayBio ? <Title/>:null}
     render()
     {  
         return(
@@ -68,7 +70,7 @@ class App extends Component
                 <img src={profile} alt='profile' className="profile"/>
                 <h1>Hello!</h1>
                 <p>My name is Ng Yong Kang.</p>
-                {this.state.displayBio ? <Title/>:null}
+                <Title/>
                 <p>I hope to learn valuable skills from this ReactJS course. :)</p>
                 {
                     this.state.displayBio ? (
