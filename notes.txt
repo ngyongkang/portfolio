@@ -1,0 +1,43 @@
+/**
+* The React library sets up the file to write react code by importing
+* global values and methods that are defined within the react library.
+**/ 
+import React from 'react';
+/**
+* The ReactDOM library takes care of actual application rendering meaning
+* displaying the application on the brower itself.
+**/   
+import ReactDOM from 'react-dom';
+
+
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+/* VERY IMPORTANT WITHOUT THIS LINE REACT CANNOT WORK WITH HTML!!
+* Most important line of all, The following line ReachDOM.render();
+* is a function which takes care of inserting react code into the html.
+*/
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+//Old code that was removed from git repostiory 
+/*
+* If you want your app to work offline and load faster, you can
+* change unregister() to register() below. note this comes with some
+* pitfalls. Learn more about service workers: http://bit.ly/CRA-PWA
+*/
+//ServiceWorker.unregister();
+
+SCREAM_CASE SYNTAX (Naming convention syntax):
+All letters in a variable is UPPERCASE to indicate that it will be a global variable.
+This type of naming convention is commonly found in javascript projects.
