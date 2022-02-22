@@ -24083,7 +24083,7 @@ var PROJECTS = [{
 var _default = PROJECTS; //Allow the PROJECTS variable to be accessed globally throughout the project.
 
 exports.default = _default;
-},{"../assets/project1.png":"assets/project1.png","../assets/project2.png":"assets/project2.png","../assets/project3.png":"assets/project3.png"}],"Projects.js":[function(require,module,exports) {
+},{"../assets/project1.png":"assets/project1.png","../assets/project2.png":"assets/project2.png","../assets/project3.png":"assets/project3.png"}],"components/Projects.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24093,7 +24093,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _projects = _interopRequireDefault(require("./data/projects"));
+var _projects = _interopRequireDefault(require("../data/projects"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24261,7 +24261,7 @@ var _default = Projects;
 */
 
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./data/projects":"data/projects.js"}],"assets/email_icon.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../data/projects":"data/projects.js"}],"assets/email_icon.png":[function(require,module,exports) {
 module.exports = "/email_icon.d6c23642.png";
 },{}],"assets/linkedin_icon.png":[function(require,module,exports) {
 module.exports = "/linkedin_icon.32d4c8f5.png";
@@ -24315,7 +24315,7 @@ var SOCIALDATA = [{
 }];
 var _default = SOCIALDATA;
 exports.default = _default;
-},{"../assets/email_icon.png":"assets/email_icon.png","../assets/linkedin_icon.png":"assets/linkedin_icon.png","../assets/github_icon.png":"assets/github_icon.png","../assets/twitter_icon.png":"assets/twitter_icon.png"}],"Social_Media.js":[function(require,module,exports) {
+},{"../assets/email_icon.png":"assets/email_icon.png","../assets/linkedin_icon.png":"assets/linkedin_icon.png","../assets/github_icon.png":"assets/github_icon.png","../assets/twitter_icon.png":"assets/twitter_icon.png"}],"components/Social_Media.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24325,7 +24325,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _social_media = _interopRequireDefault(require("./data/social_media"));
+var _social_media = _interopRequireDefault(require("../data/social_media"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24425,9 +24425,9 @@ var Social_Media = /*#__PURE__*/function (_Component2) {
 
 var _default = Social_Media;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./data/social_media":"data/social_media.js"}],"assets/profile.png":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../data/social_media":"data/social_media.js"}],"assets/profile.png":[function(require,module,exports) {
 module.exports = "/profile.ae7bce2d.png";
-},{}],"Title.js":[function(require,module,exports) {
+},{}],"components/Title.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24575,7 +24575,7 @@ var Title = /*#__PURE__*/function (_Component) {
 
 var _default = Title;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"components/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24589,7 +24589,7 @@ var _Projects = _interopRequireDefault(require("./Projects"));
 
 var _Social_Media = _interopRequireDefault(require("./Social_Media"));
 
-var _profile = _interopRequireDefault(require("./assets/profile.png"));
+var _profile = _interopRequireDefault(require("../assets/profile.png"));
 
 var _Title = _interopRequireDefault(require("./Title"));
 
@@ -24687,7 +24687,7 @@ var App = /*#__PURE__*/function (_Component) {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Projects":"Projects.js","./Social_Media":"Social_Media.js","./assets/profile.png":"assets/profile.png","./Title":"Title.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./Projects":"components/Projects.js","./Social_Media":"components/Social_Media.js","../assets/profile.png":"assets/profile.png","./Title":"components/Title.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -24766,7 +24766,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
-var _App = _interopRequireDefault(require("./App"));
+var _App = _interopRequireDefault(require("./components/App"));
 
 require("./index.css");
 
@@ -24816,7 +24816,7 @@ lion1.speak();
 lion1.roar();
 console.log(lion1);
 */
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./App":"App.js","./index.css":"index.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/App":"components/App.js","./index.css":"index.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -24844,7 +24844,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49881" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64110" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

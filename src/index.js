@@ -1,7 +1,7 @@
 //index.js is not a default file the index is a naming convention for this project default file.
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './components/App';
 //CSS can be imported directly to the javascript by importing the css file locally.
 import './index.css';
 

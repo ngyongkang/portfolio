@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import SOCIALDATA from "./data/social_media";
+import SOCIALDATA from "../data/social_media";
 
 class Social extends Component {
     render(){
