@@ -3,6 +3,7 @@ import Projects from './Projects';
 import Social_Media from "./Social_Media";
 import profile from "../assets/profile.png";
 import Title from "./Title";
+import Jokes from "./Jokes";
 
 class App extends Component
 {
@@ -91,6 +92,8 @@ class App extends Component
                 <Projects/> 
                 <hr/>
                 <Social_Media/>
+                <hr/>
+                <Jokes/>
             </div>
         )
     }
@@ -98,7 +101,7 @@ class App extends Component
 
 /*
 * The export default line allows other files in the codebase to access this component.
-* By delcaring this App component as the default export of the file. Other files iwll 
+* By delcaring this App component as the default export of the file. Other files will 
 * be able to import the app just like we imported react without the curly braces from
 * the react module.
 */
