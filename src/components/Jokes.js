@@ -16,7 +16,8 @@ class Jokes extends Component {
          */
         .then(response => response.json()) //Getting json response from hyperlink.
         //.then(json => console.log('json:',json)); //For checking the json response.
-        .then(json => this.setState({joke: json})); //Sets the joke
+        .then(json => this.setState({joke: json}))
+        .catch(error => alert(error.message)); //Sets the joke
         //from the fetch request you can see that there is a chain syntax,
         //that is because on the second line we are getting back a promise as well.
         //Therefore, we are are able to chain the third line because we are 
@@ -28,7 +29,8 @@ class Jokes extends Component {
     refreshJoke = () => {
         fetch('https://v2.jokeapi.dev/joke/Any')
         .then(response => response.json())
-        .then(json => this.setState({joke: json}));
+        .then(json => this.setState({joke: json}))
+        .catch(error => alert(error.message));
     }
     
     fetchJokes = () => {
@@ -40,7 +42,8 @@ class Jokes extends Component {
         //which contains three different values instead. Therefore, there was an error in the code
         //which did not allow us to use the map function as it is used for arrays only.
         .then(json => this.setState({jokes: json.jokes})) //<---------------------- ** IMPORTANT** NESTED value.
-        .then(() => console.log(this.state.jokes));
+        .catch(error => alert(error.message)); //Error checking message.
+        //.then(() => console.log(this.state.jokes)) for debugging.
         
     }
 

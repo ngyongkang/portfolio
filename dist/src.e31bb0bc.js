@@ -24558,6 +24558,8 @@ var Jokes = /*#__PURE__*/function (_Component) {
         return _this.setState({
           joke: json
         });
+      }).catch(function (error) {
+        return alert(error.message);
       });
     });
 
@@ -24574,9 +24576,10 @@ var Jokes = /*#__PURE__*/function (_Component) {
           jokes: json.jokes
         });
       }) //<---------------------- ** IMPORTANT** NESTED value.
-      .then(function () {
-        return console.log(_this.state.jokes);
-      });
+      .catch(function (error) {
+        return alert(error.message);
+      }); //Error checking message.
+      //.then(() => console.log(this.state.jokes)) for debugging.
     });
 
     return _this;
@@ -24600,6 +24603,8 @@ var Jokes = /*#__PURE__*/function (_Component) {
         return _this2.setState({
           joke: json
         });
+      }).catch(function (error) {
+        return alert(error.message);
       }); //Sets the joke
       //from the fetch request you can see that there is a chain syntax,
       //that is because on the second line we are getting back a promise as well.
@@ -24836,7 +24841,25 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 //index.js is not a default file the index is a naming convention for this project default file.
 //CSS can be imported directly to the javascript by importing the css file locally.
-_reactDom.default.render( /*#__PURE__*/_react.default.createElement(_App.default, null), document.getElementById('root')); //Example class and inheritance example.
+_reactDom.default.render( /*#__PURE__*/_react.default.createElement(_App.default, null), document.getElementById('root')); //Under the hood example on how fetch method works.
+//A promise can be ues to resolve a process before doing other processes or 
+//use to catch errors that happen during that process.
+//This is how a fetch method does it's work behind the scenes.
+
+/*
+new Promise ( (resolve, reject) => {
+    return reject(new Error('No bears'));
+    
+    setTimeout(() => {
+        resolve('Bears Battlestar Galactica');
+    },2000);
+})
+.then(quote => {
+    console.log(quote);
+})
+.catch(error => console.log('error', error));
+*/
+//Example class and inheritance example.
 
 /*
 class Animal
@@ -24906,7 +24929,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53964" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64191" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

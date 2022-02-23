@@ -7,6 +7,23 @@ import './index.css';
 
 ReactDOM.render(<App/>,document.getElementById('root'));
 
+//Under the hood example on how fetch method works.
+//A promise can be ues to resolve a process before doing other processes or 
+//use to catch errors that happen during that process.
+//This is how a fetch method does it's work behind the scenes.
+/*
+new Promise ( (resolve, reject) => {
+    return reject(new Error('No bears'));
+    
+    setTimeout(() => {
+        resolve('Bears Battlestar Galactica');
+    },2000);
+})
+.then(quote => {
+    console.log(quote);
+})
+.catch(error => console.log('error', error));
+*/
 
 
 //Example class and inheritance example.
