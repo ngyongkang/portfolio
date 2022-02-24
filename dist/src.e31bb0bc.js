@@ -24039,453 +24039,7 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"assets/project1.png":[function(require,module,exports) {
-module.exports = "/project1.0e13da1c.png";
-},{}],"assets/project2.png":[function(require,module,exports) {
-module.exports = "/project2.d48872d8.png";
-},{}],"assets/project3.png":[function(require,module,exports) {
-module.exports = "/project3.592b562e.png";
-},{}],"data/projects.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _project = _interopRequireDefault(require("../assets/project1.png"));
-
-var _project2 = _interopRequireDefault(require("../assets/project2.png"));
-
-var _project3 = _interopRequireDefault(require("../assets/project3.png"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var PROJECTS = [{
-  id: 1,
-  title: 'Project 1',
-  description: 'Project 1 description',
-  link: '',
-  image: _project.default
-}, {
-  id: 2,
-  title: 'Project 2',
-  description: 'Project 2 description',
-  link: '',
-  image: _project2.default
-}, {
-  id: 3,
-  title: 'Project 3',
-  description: 'Project 3 description',
-  link: '',
-  image: _project3.default
-}];
-var _default = PROJECTS; //Allow the PROJECTS variable to be accessed globally throughout the project.
-
-exports.default = _default;
-},{"../assets/project1.png":"assets/project1.png","../assets/project2.png":"assets/project2.png","../assets/project3.png":"assets/project3.png"}],"components/Projects.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _projects = _interopRequireDefault(require("../data/projects"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//Stateless functional syntax being used.
-var Project = function Project(props) {
-  //console.log('this.props',props);
-  var _props$project = props.project,
-      title = _props$project.title,
-      image = _props$project.image,
-      description = _props$project.description,
-      link = _props$project.link;
-  return /*#__PURE__*/_react.default.createElement("div", {
-    style: {
-      display: 'inline-block',
-      width: 300,
-      margin: 10
-    }
-  }, /*#__PURE__*/_react.default.createElement("h3", null, title), /*#__PURE__*/_react.default.createElement("img", {
-    src: image,
-    alt: "profile",
-    style: {
-      width: 200,
-      height: 120
-    }
-  }), /*#__PURE__*/_react.default.createElement("p", null, description), /*#__PURE__*/_react.default.createElement("a", {
-    href: link
-  }, link));
-}; //Converted to stateless functional component as the function does not use state.
-
-
-var Projects = function Projects() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Highlighted Projects"), /*#__PURE__*/_react.default.createElement("div", null, _projects.default.map(function (PROJECT) {
-    return /*#__PURE__*/_react.default.createElement(Project, {
-      key: PROJECT.id,
-      project: PROJECT
-    });
-  })));
-};
-
-var _default = Projects;
-/*
-    Hard code way to use attributes inside an array. (Static Approach)
-    Not recommended for multiple entries and cannot scale.
-    <div>{PROJECTS[0].title}</div>
-    <div>{PROJECTS[1].title}</div>
-    <div>{PROJECTS[2].title}</div>
-
-    Conversion from an array to JSX array. (Dynamic Approach) Read up **
-    
-    Using the map function we can convert our global array (PROJECTS)
-    to a JSX array. We then use the "Callback" Function to return
-    an object back in div format with the selected content we want to display 
-    for each object in the array.
-
-    Recommended for scalability and multiple entries.
-
-    Explanation by Video:
-    So let's replace this with an overall pair of curly braces where we can write some logic within the
-    JSX.
-    We're gonna use the map function on the projects array to take the original array and transform it
-    into a new one that consists of a bunch of JSX objects.
-    So use Projects.map.
-    We can now use a map function to transform the project data items to individual pieces of JSX to
-    render.
-    So with that we have a callback function to pass into the map and the actual parameter to the callback
-    function is each project one at a time.
-    So it's gonna use the first project and then the second project and the third project firing this callback
-    function one at a time.
-    And for each item now let's have the return statement.
-    And this is going to return a div overall that renders the project object's title.
-    So have a pair of curly braces and then render the project title and this code is equivalent to what
-    we had before.
-    For each of the individual project items within the project array we're turning each one into a div
-    that consists of its title right.
-
-    {
-        PROJECTS.map( PROJECT => {
-            return(
-            <div>{PROJECT.title}</div>
-            );
-        })
-    }
-
-    Now if you open up the console you're gonna notice that there is this warning saying that each child
-    in an array or iterator needs a key property this is essentially React telling us that it needs a way
-    to distinguish JSX that's generated by in that function that way under the hood it can optimize
-    the rendering of the JSX.
-
-    by adding the key={PROJECT.id} to the div located inside the return statement above we can
-    retrieve the id for the objects.
-
-    JavaScript destructuring syntax allows us to extract data from arrays, objects, maps and 
-    set them into new, distinct variables. Destructuring allows us to extract multiple properties, 
-    or items, from an array​ at a time.
-    
-    The following is an example of the destructuring syntax:
-
-    const {title, image, description, link} = this.props.object;
-    
-    This equals to the following basic syntax:
-
-    const title = this.props.project.title;
-    const image = this.props.project.image;
-    const description = this.props.project.description;
-    const link = this.props.project.link;
-
-*/
-
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","../data/projects":"data/projects.js"}],"assets/email_icon.png":[function(require,module,exports) {
-module.exports = "/email_icon.d6c23642.png";
-},{}],"assets/linkedin_icon.png":[function(require,module,exports) {
-module.exports = "/linkedin_icon.32d4c8f5.png";
-},{}],"assets/github_icon.png":[function(require,module,exports) {
-module.exports = "/github_icon.2b0f71f9.png";
-},{}],"assets/twitter_icon.png":[function(require,module,exports) {
-module.exports = "/twitter_icon.38592594.png";
-},{}],"data/social_media.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _email_icon = _interopRequireDefault(require("../assets/email_icon.png"));
-
-var _linkedin_icon = _interopRequireDefault(require("../assets/linkedin_icon.png"));
-
-var _github_icon = _interopRequireDefault(require("../assets/github_icon.png"));
-
-var _twitter_icon = _interopRequireDefault(require("../assets/twitter_icon.png"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//Remember to put array as const to prevent changes to it from other components or codebase.
-var SOCIALDATA = [{
-  id: 0,
-  title: 'email',
-  description: 'Personal email account',
-  link: 'mailto:nyk.com.sg@gmail.com',
-  image: _email_icon.default
-}, {
-  id: 1,
-  title: 'linkedin',
-  description: 'Personal linkedin account',
-  link: 'https://linkedin.com/in/ng-yong-kang-a60871193/',
-  image: _linkedin_icon.default
-}, {
-  id: 2,
-  title: 'github',
-  description: 'Personal github account',
-  link: 'https://github.com/ngyongkang',
-  image: _github_icon.default
-}, {
-  id: 3,
-  title: 'twitter',
-  description: 'Personal Twitter account',
-  link: 'https://twitter.com/',
-  image: _twitter_icon.default
-}];
-var _default = SOCIALDATA;
-exports.default = _default;
-},{"../assets/email_icon.png":"assets/email_icon.png","../assets/linkedin_icon.png":"assets/linkedin_icon.png","../assets/github_icon.png":"assets/github_icon.png","../assets/twitter_icon.png":"assets/twitter_icon.png"}],"components/Social_Media.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _social_media = _interopRequireDefault(require("../data/social_media"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-//Converted to stateless functional component.
-var Social = function Social(props) {
-  //console.log('Testing for props link.', this.props);
-  var _props$social = props.social,
-      title = _props$social.title,
-      description = _props$social.description,
-      link = _props$social.link,
-      image = _props$social.image;
-  return /*#__PURE__*/_react.default.createElement("div", {
-    style: {
-      display: 'inline-block',
-      width: 100,
-      margin: 10
-    }
-  }, /*#__PURE__*/_react.default.createElement("a", {
-    href: link
-  }, /*#__PURE__*/_react.default.createElement("img", {
-    src: image,
-    alt: "profile",
-    style: {
-      width: 50,
-      height: 50
-    }
-  })));
-}; //Converted to stateless functional component with inline return. Inline return means
-//One return statement in the function only.
-
-
-var Social_Media = function Social_Media() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Connect with me !! "), /*#__PURE__*/_react.default.createElement("div", null, _social_media.default.map(function (SOCIAL) {
-    return /*#__PURE__*/_react.default.createElement(Social, {
-      key: SOCIAL.id,
-      social: SOCIAL
-    });
-  })));
-}; //Original component class, converted to stateless functional component on top.
-
-/*
-class Social_Media extends Component  {
-    render()
-    {
-        return (
-        <div>
-            <h2>Connect with me !! </h2>
-            <div>
-                {SOCIALDATA.map(SOCIAL => {
-                    return (
-                        <Social key={SOCIAL.id} social={SOCIAL} />
-                    );
-                })}
-            </div>
-        </div>
-        );
-    }
-}
-*/
-
-
-var _default = Social_Media;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","../data/social_media":"data/social_media.js"}],"assets/profile.png":[function(require,module,exports) {
-module.exports = "/profile.ae7bce2d.png";
-},{}],"components/Title.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireWildcard(require("react"));
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var TITLES = ['a software engineer', 'an anime lover', 'interested in all things nerdy'];
-
-var Title = /*#__PURE__*/function (_Component) {
-  _inherits(Title, _Component);
-
-  var _super = _createSuper(Title);
-
-  function Title() {
-    var _this;
-
-    _classCallCheck(this, Title);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      titleIndex: 0,
-      fadeIn: true
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "animateTitles", function () {
-      //Setting setInterval method to a local variable.
-      _this.titleInterval = setInterval(function () {
-        /*The following line is used to change the number inside
-         *the titleIndex by 1. The modular (%) portion is to
-         *prevent the index from going out of bounds.
-        */
-        var titleIndex = (_this.state.titleIndex + 1) % TITLES.length;
-        /*
-         *By using the setstate method on the titleIndex variable 
-         *we are able to cycle through the titles in the TITLES array by 
-         *changing the number inside the variable.
-         *
-         *By setting the fadeIn variable to true everytime the state
-         *changes the fadeIn effect will carry out essentially bringing
-         *back the object with a fade in effect.
-        */
-
-        _this.setState({
-          titleIndex: titleIndex,
-          fadeIn: true
-        });
-
-        _this.titleTimeout = setTimeout(function () {
-          return _this.setState({
-            fadeIn: false
-          });
-        }, 2000);
-      }, 4000); //console.log('thistitleInterval',this.titleInterval);
-    });
-
-    return _this;
-  }
-
-  _createClass(Title, [{
-    key: "componentDidMount",
-    value: //Example componentDidMount() method
-    function componentDidMount() {
-      var _this2 = this;
-
-      //console.log('Title component has mounted');
-
-      /*The line below sets the timer of the created fading effect.
-       *Using the setTimeout method we can change the state of an object
-       *after the given time has finished. 
-      */
-      this.titleTimeout = setTimeout(function () {
-        return _this2.setState({
-          fadeIn: false
-        });
-      }, 2000); //Using local method.
-
-      this.animateTitles();
-    } //Example componentWillUnmount() method
-
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      //console.log('Title component will unmount!');
-      //Helps to clear the queued timer and prevent memory leaking.
-      clearInterval(this.titleInterval);
-      clearTimeout(this.titleTimeout);
-    } //Local method to animate titles.
-
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$state = this.state,
-          fadeIn = _this$state.fadeIn,
-          titleIndex = _this$state.titleIndex;
-      var title = TITLES[titleIndex];
-      return (
-        /*#__PURE__*/
-        //Adding the className to the paragraph with the created 'fade' css
-        //We now have a fading effect on our title !! ^^
-        _react.default.createElement("p", {
-          className: fadeIn ? 'title-fade-in' : 'title-fade-out'
-        }, "I am ", title)
-      );
-    }
-  }]);
-
-  return Title;
-}(_react.Component);
-
-var _default = Title;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"../node_modules/warning/warning.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"../node_modules/react-dom/cjs/react-dom.development.js"}],"../node_modules/warning/warning.js":[function(require,module,exports) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -29269,333 +28823,7 @@ var _matchPath2 = _interopRequireDefault(require("./matchPath"));
 var _withRouter2 = _interopRequireDefault(require("./withRouter"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./BrowserRouter":"../node_modules/react-router-dom/es/BrowserRouter.js","./HashRouter":"../node_modules/react-router-dom/es/HashRouter.js","./Link":"../node_modules/react-router-dom/es/Link.js","./MemoryRouter":"../node_modules/react-router-dom/es/MemoryRouter.js","./NavLink":"../node_modules/react-router-dom/es/NavLink.js","./Prompt":"../node_modules/react-router-dom/es/Prompt.js","./Redirect":"../node_modules/react-router-dom/es/Redirect.js","./Route":"../node_modules/react-router-dom/es/Route.js","./Router":"../node_modules/react-router-dom/es/Router.js","./StaticRouter":"../node_modules/react-router-dom/es/StaticRouter.js","./Switch":"../node_modules/react-router-dom/es/Switch.js","./generatePath":"../node_modules/react-router-dom/es/generatePath.js","./matchPath":"../node_modules/react-router-dom/es/matchPath.js","./withRouter":"../node_modules/react-router-dom/es/withRouter.js"}],"components/Header.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _reactRouterDom = require("react-router-dom");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//Header component is similar to a navbar however, it can retain session information.
-var Header = function Header() {
-  //Custom styling for this component.
-  var style = {
-    display: 'inline-block',
-    margin: 10,
-    marginBottom: 30
-  };
-  return (
-    /*#__PURE__*/
-    //Recommended to use the Link library from react-router-dom instead
-    //as it allows tracking activity of the user.
-    _react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", {
-      style: style
-    }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-      to: "/"
-    }, "Home")), /*#__PURE__*/_react.default.createElement("h3", {
-      style: style
-    }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-      to: "/jokes"
-    }, "Jokes"))) //Using anchor tags can achieve the same output however,
-    //It is highly not recommended as React does not work well
-    //with the anchor tags. By using this approach you will be
-    //restarting the state of the session each time a link is clicked
-    //Therefore, removing any tracking activity that was done on the site.
-    //Do take note this is very important as it would look as if the user
-    //entered the website for the first time. 
-    //Can be tested by adding a console.log in the render of the App component.
-    // <div>
-    //     <h3 style={style}><a href='/'>Home</a></h3>
-    //     <h3 style={style}><a href='./jokes'>Jokes</a></h3>
-    // </div>
-
-  );
-};
-
-var _default = Header;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js"}],"components/App.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _Projects = _interopRequireDefault(require("./Projects"));
-
-var _Social_Media = _interopRequireDefault(require("./Social_Media"));
-
-var _profile = _interopRequireDefault(require("../assets/profile.png"));
-
-var _Title = _interopRequireDefault(require("./Title"));
-
-var _Header = _interopRequireDefault(require("./Header"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var App = /*#__PURE__*/function (_Component) {
-  _inherits(App, _Component);
-
-  var _super = _createSuper(App);
-
-  function App() {
-    var _this;
-
-    _classCallCheck(this, App);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      displayBio: false
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "toggleBio", function () {
-      /*
-      * This line of code allows the object state to change to the opposition option of it's
-      * currently stored option. For example, if displayBio state is false, the following
-      * code would change it to true and vice versa. 
-      */
-      _this.setState({
-        displayBio: !_this.state.displayBio
-      });
-    });
-
-    return _this;
-  }
-
-  _createClass(App, [{
-    key: "render",
-    value: //The line below can be put into where the <Title/> is to
-    //test the componentWillUnmount method.
-    //{this.state.displayBio ? <Title/>:null}
-    function render() {
-      //console.log('hi'); //testing for header anchors.
-      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement("img", {
-        src: _profile.default,
-        alt: "profile",
-        className: "profile"
-      }), /*#__PURE__*/_react.default.createElement("h1", null, "Hello!"), /*#__PURE__*/_react.default.createElement("p", null, "My name is Ng Yong Kang."), /*#__PURE__*/_react.default.createElement(_Title.default, null), /*#__PURE__*/_react.default.createElement("p", null, "I hope to learn valuable skills from this ReactJS course. :)"), this.state.displayBio ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "I live in Singapore and I just got hired as a programmer."), /*#__PURE__*/_react.default.createElement("p", null, "My main language is Java and I am currently learning React JS."), /*#__PURE__*/_react.default.createElement("p", null, "I don't really like coding much but these are some things I do like"), /*#__PURE__*/_react.default.createElement("p", null, "gaming, anime, kdrama, my family and of course girls"), /*#__PURE__*/_react.default.createElement("button", {
-        onClick: this.toggleBio
-      }, "Show less")) : /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
-        onClick: this.toggleBio
-      }, "Show more")), /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement(_Projects.default, null), /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement(_Social_Media.default, null));
-    }
-  }]);
-
-  return App;
-}(_react.Component);
-/*
-* The export default line allows other files in the codebase to access this component.
-* By delcaring this App component as the default export of the file. Other files will 
-* be able to import the app just like we imported react without the curly braces from
-* the react module.
-*/
-
-
-var _default = App;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Projects":"components/Projects.js","./Social_Media":"components/Social_Media.js","../assets/profile.png":"assets/profile.png","./Title":"components/Title.js","./Header":"components/Header.js"}],"components/Jokes.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _Header = _interopRequireDefault(require("./Header"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var Joke = function Joke(_ref) {
-  var joke = _ref.joke;
-  var setup = joke.setup,
-      delivery = joke.delivery;
-  return /*#__PURE__*/_react.default.createElement("p", null, setup, /*#__PURE__*/_react.default.createElement("em", null, delivery));
-};
-
-var Jokes = /*#__PURE__*/function (_Component) {
-  _inherits(Jokes, _Component);
-
-  var _super = _createSuper(Jokes);
-
-  function Jokes() {
-    var _this;
-
-    _classCallCheck(this, Jokes);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      joke: {},
-      jokes: []
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "refreshJoke", function () {
-      fetch('https://v2.jokeapi.dev/joke/Any').then(function (response) {
-        return response.json();
-      }).then(function (json) {
-        return _this.setState({
-          joke: json
-        });
-      }).catch(function (error) {
-        return alert(error.message);
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "fetchJokes", function () {
-      fetch('https://v2.jokeapi.dev/joke/Any?amount=10').then(function (response) {
-        return response.json();
-      }) //.then(json => console.log('json:',json))
-      //API was not in array format, was a nested object. This lead to the object becoming
-      //the wrong object type as we wanted an array object we were given an object
-      //which contains three different values instead. Therefore, there was an error in the code
-      //which did not allow us to use the map function as it is used for arrays only.
-      .then(function (json) {
-        return _this.setState({
-          jokes: json.jokes
-        });
-      }) //<---------------------- ** IMPORTANT** NESTED value.
-      .catch(function (error) {
-        return alert(error.message);
-      }); //Error checking message.
-      //.then(() => console.log(this.state.jokes)) for debugging.
-    });
-
-    return _this;
-  }
-
-  _createClass(Jokes, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      fetch('https://v2.jokeapi.dev/joke/Any') //fetch function to collect data from link.
-
-      /*The line below can be type like this ".then(response => {return response.json() })"
-       *basically it's the same as returning the response but doing it "inline"
-       */
-      .then(function (response) {
-        return response.json();
-      }) //Getting json response from hyperlink.
-      //.then(json => console.log('json:',json)); //For checking the json response.
-      .then(function (json) {
-        return _this2.setState({
-          joke: json
-        });
-      }).catch(function (error) {
-        return alert(error.message);
-      }); //Sets the joke
-      //from the fetch request you can see that there is a chain syntax,
-      //that is because on the second line we are getting back a promise as well.
-      //Therefore, we are are able to chain the third line because we are 
-      //trying to get the values out of the "JSON" portion of the promise.
-      //Similar to a nested function.?.?
-    } //Remember to set up callback function for the new function. ** similar to declaring
-    //a void function in java. public static void "Function name"
-
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$state$joke = this.state.joke,
-          setup = _this$state$joke.setup,
-          delivery = _this$state$joke.delivery;
-      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement("h2", null, "Highlighted Joke"), /*#__PURE__*/_react.default.createElement(Joke, {
-        joke: this.state.joke
-      }), /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement("button", {
-        onClick: this.fetchJokes
-      }, "Click for more jokes  "), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), this.state.jokes.map(function (joke) {
-        return /*#__PURE__*/_react.default.createElement(Joke, {
-          key: joke.id,
-          joke: joke
-        });
-      })); //Remember not to directly call function in event handlers because as the site is 
-      //rendering, the event is fired every render which would lead to a loop of
-      //function fire and render.
-    }
-  }]);
-
-  return Jokes;
-}(_react.Component);
-
-var _default = Jokes;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Header":"components/Header.js"}],"../node_modules/history/PathUtils.js":[function(require,module,exports) {
+},{"./BrowserRouter":"../node_modules/react-router-dom/es/BrowserRouter.js","./HashRouter":"../node_modules/react-router-dom/es/HashRouter.js","./Link":"../node_modules/react-router-dom/es/Link.js","./MemoryRouter":"../node_modules/react-router-dom/es/MemoryRouter.js","./NavLink":"../node_modules/react-router-dom/es/NavLink.js","./Prompt":"../node_modules/react-router-dom/es/Prompt.js","./Redirect":"../node_modules/react-router-dom/es/Redirect.js","./Route":"../node_modules/react-router-dom/es/Route.js","./Router":"../node_modules/react-router-dom/es/Router.js","./StaticRouter":"../node_modules/react-router-dom/es/StaticRouter.js","./Switch":"../node_modules/react-router-dom/es/Switch.js","./generatePath":"../node_modules/react-router-dom/es/generatePath.js","./matchPath":"../node_modules/react-router-dom/es/matchPath.js","./withRouter":"../node_modules/react-router-dom/es/withRouter.js"}],"../node_modules/history/PathUtils.js":[function(require,module,exports) {
 'use strict';
 
 exports.__esModule = true;
@@ -30258,22 +29486,793 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./assets\\roboto-condensed.light.ttf":[["roboto-condensed.light.6709adf4.ttf","assets/roboto-condensed.light.ttf"],"assets/roboto-condensed.light.ttf"],"./assets\\economica-bold.ttf":[["economica-bold.12a9e27d.ttf","assets/economica-bold.ttf"],"assets/economica-bold.ttf"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
+},{"./assets\\roboto-condensed.light.ttf":[["roboto-condensed.light.6709adf4.ttf","assets/roboto-condensed.light.ttf"],"assets/roboto-condensed.light.ttf"],"./assets\\economica-bold.ttf":[["economica-bold.12a9e27d.ttf","assets/economica-bold.ttf"],"assets/economica-bold.ttf"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"assets/project1.png":[function(require,module,exports) {
+module.exports = "/project1.0e13da1c.png";
+},{}],"assets/project2.png":[function(require,module,exports) {
+module.exports = "/project2.d48872d8.png";
+},{}],"assets/project3.png":[function(require,module,exports) {
+module.exports = "/project3.592b562e.png";
+},{}],"data/projects.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _project = _interopRequireDefault(require("../assets/project1.png"));
+
+var _project2 = _interopRequireDefault(require("../assets/project2.png"));
+
+var _project3 = _interopRequireDefault(require("../assets/project3.png"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var PROJECTS = [{
+  id: 1,
+  title: 'Project 1',
+  description: 'Project 1 description',
+  link: '',
+  image: _project.default
+}, {
+  id: 2,
+  title: 'Project 2',
+  description: 'Project 2 description',
+  link: '',
+  image: _project2.default
+}, {
+  id: 3,
+  title: 'Project 3',
+  description: 'Project 3 description',
+  link: '',
+  image: _project3.default
+}];
+var _default = PROJECTS; //Allow the PROJECTS variable to be accessed globally throughout the project.
+
+exports.default = _default;
+},{"../assets/project1.png":"assets/project1.png","../assets/project2.png":"assets/project2.png","../assets/project3.png":"assets/project3.png"}],"components/Projects.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _projects = _interopRequireDefault(require("../data/projects"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//Stateless functional syntax being used.
+var Project = function Project(props) {
+  //console.log('this.props',props);
+  var _props$project = props.project,
+      title = _props$project.title,
+      image = _props$project.image,
+      description = _props$project.description,
+      link = _props$project.link;
+  return /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'inline-block',
+      width: 300,
+      margin: 10
+    }
+  }, /*#__PURE__*/_react.default.createElement("h3", null, title), /*#__PURE__*/_react.default.createElement("img", {
+    src: image,
+    alt: "profile",
+    style: {
+      width: 200,
+      height: 120
+    }
+  }), /*#__PURE__*/_react.default.createElement("p", null, description), /*#__PURE__*/_react.default.createElement("a", {
+    href: link
+  }, link));
+}; //Converted to stateless functional component as the function does not use state.
+
+
+var Projects = function Projects() {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Highlighted Projects"), /*#__PURE__*/_react.default.createElement("div", null, _projects.default.map(function (PROJECT) {
+    return /*#__PURE__*/_react.default.createElement(Project, {
+      key: PROJECT.id,
+      project: PROJECT
+    });
+  })));
+};
+
+var _default = Projects;
+/*
+    Hard code way to use attributes inside an array. (Static Approach)
+    Not recommended for multiple entries and cannot scale.
+    <div>{PROJECTS[0].title}</div>
+    <div>{PROJECTS[1].title}</div>
+    <div>{PROJECTS[2].title}</div>
+
+    Conversion from an array to JSX array. (Dynamic Approach) Read up **
+    
+    Using the map function we can convert our global array (PROJECTS)
+    to a JSX array. We then use the "Callback" Function to return
+    an object back in div format with the selected content we want to display 
+    for each object in the array.
+
+    Recommended for scalability and multiple entries.
+
+    Explanation by Video:
+    So let's replace this with an overall pair of curly braces where we can write some logic within the
+    JSX.
+    We're gonna use the map function on the projects array to take the original array and transform it
+    into a new one that consists of a bunch of JSX objects.
+    So use Projects.map.
+    We can now use a map function to transform the project data items to individual pieces of JSX to
+    render.
+    So with that we have a callback function to pass into the map and the actual parameter to the callback
+    function is each project one at a time.
+    So it's gonna use the first project and then the second project and the third project firing this callback
+    function one at a time.
+    And for each item now let's have the return statement.
+    And this is going to return a div overall that renders the project object's title.
+    So have a pair of curly braces and then render the project title and this code is equivalent to what
+    we had before.
+    For each of the individual project items within the project array we're turning each one into a div
+    that consists of its title right.
+
+    {
+        PROJECTS.map( PROJECT => {
+            return(
+            <div>{PROJECT.title}</div>
+            );
+        })
+    }
+
+    Now if you open up the console you're gonna notice that there is this warning saying that each child
+    in an array or iterator needs a key property this is essentially React telling us that it needs a way
+    to distinguish JSX that's generated by in that function that way under the hood it can optimize
+    the rendering of the JSX.
+
+    by adding the key={PROJECT.id} to the div located inside the return statement above we can
+    retrieve the id for the objects.
+
+    JavaScript destructuring syntax allows us to extract data from arrays, objects, maps and 
+    set them into new, distinct variables. Destructuring allows us to extract multiple properties, 
+    or items, from an array​ at a time.
+    
+    The following is an example of the destructuring syntax:
+
+    const {title, image, description, link} = this.props.object;
+    
+    This equals to the following basic syntax:
+
+    const title = this.props.project.title;
+    const image = this.props.project.image;
+    const description = this.props.project.description;
+    const link = this.props.project.link;
+
+*/
+
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","../data/projects":"data/projects.js"}],"assets/email_icon.png":[function(require,module,exports) {
+module.exports = "/email_icon.d6c23642.png";
+},{}],"assets/linkedin_icon.png":[function(require,module,exports) {
+module.exports = "/linkedin_icon.32d4c8f5.png";
+},{}],"assets/github_icon.png":[function(require,module,exports) {
+module.exports = "/github_icon.2b0f71f9.png";
+},{}],"assets/twitter_icon.png":[function(require,module,exports) {
+module.exports = "/twitter_icon.38592594.png";
+},{}],"data/social_media.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _email_icon = _interopRequireDefault(require("../assets/email_icon.png"));
+
+var _linkedin_icon = _interopRequireDefault(require("../assets/linkedin_icon.png"));
+
+var _github_icon = _interopRequireDefault(require("../assets/github_icon.png"));
+
+var _twitter_icon = _interopRequireDefault(require("../assets/twitter_icon.png"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//Remember to put array as const to prevent changes to it from other components or codebase.
+var SOCIALDATA = [{
+  id: 0,
+  title: 'email',
+  description: 'Personal email account',
+  link: 'mailto:nyk.com.sg@gmail.com',
+  image: _email_icon.default
+}, {
+  id: 1,
+  title: 'linkedin',
+  description: 'Personal linkedin account',
+  link: 'https://linkedin.com/in/ng-yong-kang-a60871193/',
+  image: _linkedin_icon.default
+}, {
+  id: 2,
+  title: 'github',
+  description: 'Personal github account',
+  link: 'https://github.com/ngyongkang',
+  image: _github_icon.default
+}, {
+  id: 3,
+  title: 'twitter',
+  description: 'Personal Twitter account',
+  link: 'https://twitter.com/',
+  image: _twitter_icon.default
+}];
+var _default = SOCIALDATA;
+exports.default = _default;
+},{"../assets/email_icon.png":"assets/email_icon.png","../assets/linkedin_icon.png":"assets/linkedin_icon.png","../assets/github_icon.png":"assets/github_icon.png","../assets/twitter_icon.png":"assets/twitter_icon.png"}],"components/Social_Media.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _social_media = _interopRequireDefault(require("../data/social_media"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+//Converted to stateless functional component.
+var Social = function Social(props) {
+  //console.log('Testing for props link.', this.props);
+  var _props$social = props.social,
+      title = _props$social.title,
+      description = _props$social.description,
+      link = _props$social.link,
+      image = _props$social.image;
+  return /*#__PURE__*/_react.default.createElement("div", {
+    style: {
+      display: 'inline-block',
+      width: 100,
+      margin: 10
+    }
+  }, /*#__PURE__*/_react.default.createElement("a", {
+    href: link
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: image,
+    alt: "profile",
+    style: {
+      width: 50,
+      height: 50
+    }
+  })));
+}; //Converted to stateless functional component with inline return. Inline return means
+//One return statement in the function only.
+
+
+var Social_Media = function Social_Media() {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Connect with me !! "), /*#__PURE__*/_react.default.createElement("div", null, _social_media.default.map(function (SOCIAL) {
+    return /*#__PURE__*/_react.default.createElement(Social, {
+      key: SOCIAL.id,
+      social: SOCIAL
+    });
+  })));
+}; //Original component class, converted to stateless functional component on top.
+
+/*
+class Social_Media extends Component  {
+    render()
+    {
+        return (
+        <div>
+            <h2>Connect with me !! </h2>
+            <div>
+                {SOCIALDATA.map(SOCIAL => {
+                    return (
+                        <Social key={SOCIAL.id} social={SOCIAL} />
+                    );
+                })}
+            </div>
+        </div>
+        );
+    }
+}
+*/
+
+
+var _default = Social_Media;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","../data/social_media":"data/social_media.js"}],"assets/profile.png":[function(require,module,exports) {
+module.exports = "/profile.ae7bce2d.png";
+},{}],"components/Title.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var TITLES = ['a software engineer', 'an anime lover', 'interested in all things nerdy'];
+
+var Title = /*#__PURE__*/function (_Component) {
+  _inherits(Title, _Component);
+
+  var _super = _createSuper(Title);
+
+  function Title() {
+    var _this;
+
+    _classCallCheck(this, Title);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      titleIndex: 0,
+      fadeIn: true
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "animateTitles", function () {
+      //Setting setInterval method to a local variable.
+      _this.titleInterval = setInterval(function () {
+        /*The following line is used to change the number inside
+         *the titleIndex by 1. The modular (%) portion is to
+         *prevent the index from going out of bounds.
+        */
+        var titleIndex = (_this.state.titleIndex + 1) % TITLES.length;
+        /*
+         *By using the setstate method on the titleIndex variable 
+         *we are able to cycle through the titles in the TITLES array by 
+         *changing the number inside the variable.
+         *
+         *By setting the fadeIn variable to true everytime the state
+         *changes the fadeIn effect will carry out essentially bringing
+         *back the object with a fade in effect.
+        */
+
+        _this.setState({
+          titleIndex: titleIndex,
+          fadeIn: true
+        });
+
+        _this.titleTimeout = setTimeout(function () {
+          return _this.setState({
+            fadeIn: false
+          });
+        }, 2000);
+      }, 4000); //console.log('thistitleInterval',this.titleInterval);
+    });
+
+    return _this;
+  }
+
+  _createClass(Title, [{
+    key: "componentDidMount",
+    value: //Example componentDidMount() method
+    function componentDidMount() {
+      var _this2 = this;
+
+      //console.log('Title component has mounted');
+
+      /*The line below sets the timer of the created fading effect.
+       *Using the setTimeout method we can change the state of an object
+       *after the given time has finished. 
+      */
+      this.titleTimeout = setTimeout(function () {
+        return _this2.setState({
+          fadeIn: false
+        });
+      }, 2000); //Using local method.
+
+      this.animateTitles();
+    } //Example componentWillUnmount() method
+
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      //console.log('Title component will unmount!');
+      //Helps to clear the queued timer and prevent memory leaking.
+      clearInterval(this.titleInterval);
+      clearTimeout(this.titleTimeout);
+    } //Local method to animate titles.
+
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$state = this.state,
+          fadeIn = _this$state.fadeIn,
+          titleIndex = _this$state.titleIndex;
+      var title = TITLES[titleIndex];
+      return (
+        /*#__PURE__*/
+        //Adding the className to the paragraph with the created 'fade' css
+        //We now have a fading effect on our title !! ^^
+        _react.default.createElement("p", {
+          className: fadeIn ? 'title-fade-in' : 'title-fade-out'
+        }, "I am ", title)
+      );
+    }
+  }]);
+
+  return Title;
+}(_react.Component);
+
+var _default = Title;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"components/App.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _Projects = _interopRequireDefault(require("./Projects"));
+
+var _Social_Media = _interopRequireDefault(require("./Social_Media"));
+
+var _profile = _interopRequireDefault(require("../assets/profile.png"));
+
+var _Title = _interopRequireDefault(require("./Title"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var App = /*#__PURE__*/function (_Component) {
+  _inherits(App, _Component);
+
+  var _super = _createSuper(App);
+
+  function App() {
+    var _this;
+
+    _classCallCheck(this, App);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      displayBio: false
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "toggleBio", function () {
+      /*
+      * This line of code allows the object state to change to the opposition option of it's
+      * currently stored option. For example, if displayBio state is false, the following
+      * code would change it to true and vice versa. 
+      */
+      _this.setState({
+        displayBio: !_this.state.displayBio
+      });
+    });
+
+    return _this;
+  }
+
+  _createClass(App, [{
+    key: "render",
+    value: //The line below can be put into where the <Title/> is to
+    //test the componentWillUnmount method.
+    //{this.state.displayBio ? <Title/>:null}
+    function render() {
+      //console.log('hi'); //testing for header anchors.
+      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
+        src: _profile.default,
+        alt: "profile",
+        className: "profile"
+      }), /*#__PURE__*/_react.default.createElement("h1", null, "Hello!"), /*#__PURE__*/_react.default.createElement("p", null, "My name is Ng Yong Kang."), /*#__PURE__*/_react.default.createElement(_Title.default, null), /*#__PURE__*/_react.default.createElement("p", null, "I hope to learn valuable skills from this ReactJS course. :)"), this.state.displayBio ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "I live in Singapore and I just got hired as a programmer."), /*#__PURE__*/_react.default.createElement("p", null, "My main language is Java and I am currently learning React JS."), /*#__PURE__*/_react.default.createElement("p", null, "I don't really like coding much but these are some things I do like"), /*#__PURE__*/_react.default.createElement("p", null, "gaming, anime, kdrama, my family and of course girls"), /*#__PURE__*/_react.default.createElement("button", {
+        onClick: this.toggleBio
+      }, "Show less")) : /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
+        onClick: this.toggleBio
+      }, "Show more")), /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement(_Projects.default, null), /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement(_Social_Media.default, null));
+    }
+  }]);
+
+  return App;
+}(_react.Component);
+/*
+* The export default line allows other files in the codebase to access this component.
+* By delcaring this App component as the default export of the file. Other files will 
+* be able to import the app just like we imported react without the curly braces from
+* the react module.
+*/
+
+
+var _default = App;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./Projects":"components/Projects.js","./Social_Media":"components/Social_Media.js","../assets/profile.png":"assets/profile.png","./Title":"components/Title.js"}],"components/Jokes.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Joke = function Joke(_ref) {
+  var joke = _ref.joke;
+  var setup = joke.setup,
+      delivery = joke.delivery;
+  return /*#__PURE__*/_react.default.createElement("p", null, setup, /*#__PURE__*/_react.default.createElement("em", null, delivery));
+};
+
+var Jokes = /*#__PURE__*/function (_Component) {
+  _inherits(Jokes, _Component);
+
+  var _super = _createSuper(Jokes);
+
+  function Jokes() {
+    var _this;
+
+    _classCallCheck(this, Jokes);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      joke: {},
+      jokes: []
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "refreshJoke", function () {
+      fetch('https://v2.jokeapi.dev/joke/Any').then(function (response) {
+        return response.json();
+      }).then(function (json) {
+        return _this.setState({
+          joke: json
+        });
+      }).catch(function (error) {
+        return alert(error.message);
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "fetchJokes", function () {
+      fetch('https://v2.jokeapi.dev/joke/Any?amount=10').then(function (response) {
+        return response.json();
+      }) //.then(json => console.log('json:',json))
+      //API was not in array format, was a nested object. This lead to the object becoming
+      //the wrong object type as we wanted an array object we were given an object
+      //which contains three different values instead. Therefore, there was an error in the code
+      //which did not allow us to use the map function as it is used for arrays only.
+      .then(function (json) {
+        return _this.setState({
+          jokes: json.jokes
+        });
+      }) //<---------------------- ** IMPORTANT** NESTED value.
+      .catch(function (error) {
+        return alert(error.message);
+      }); //Error checking message.
+      //.then(() => console.log(this.state.jokes)) for debugging.
+    });
+
+    return _this;
+  }
+
+  _createClass(Jokes, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      fetch('https://v2.jokeapi.dev/joke/Any') //fetch function to collect data from link.
+
+      /*The line below can be type like this ".then(response => {return response.json() })"
+       *basically it's the same as returning the response but doing it "inline"
+       */
+      .then(function (response) {
+        return response.json();
+      }) //Getting json response from hyperlink.
+      //.then(json => console.log('json:',json)); //For checking the json response.
+      .then(function (json) {
+        return _this2.setState({
+          joke: json
+        });
+      }).catch(function (error) {
+        return alert(error.message);
+      }); //Sets the joke
+      //from the fetch request you can see that there is a chain syntax,
+      //that is because on the second line we are getting back a promise as well.
+      //Therefore, we are are able to chain the third line because we are 
+      //trying to get the values out of the "JSON" portion of the promise.
+      //Similar to a nested function.?.?
+    } //Remember to set up callback function for the new function. ** similar to declaring
+    //a void function in java. public static void "Function name"
+
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$state$joke = this.state.joke,
+          setup = _this$state$joke.setup,
+          delivery = _this$state$joke.delivery;
+      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Highlighted Joke"), /*#__PURE__*/_react.default.createElement(Joke, {
+        joke: this.state.joke
+      }), /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement("button", {
+        onClick: this.fetchJokes
+      }, "Click for more jokes  "), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), this.state.jokes.map(function (joke) {
+        return /*#__PURE__*/_react.default.createElement(Joke, {
+          key: joke.id,
+          joke: joke
+        });
+      })); //Remember not to directly call function in event handlers because as the site is 
+      //rendering, the event is fired every render which would lead to a loop of
+      //function fire and render.
+    }
+  }]);
+
+  return Jokes;
+}(_react.Component);
+
+var _default = Jokes;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"components/Header.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//Header component is similar to a navbar however, it can retain session information.
+//By adding the children property we will be changing this component to a high order version.
+//This is to allow the Header to be added to multiple components easier.
+var Header = function Header(_ref) {
+  var children = _ref.children;
+  //Custom styling for this component.
+  var style = {
+    display: 'inline-block',
+    margin: 10,
+    marginBottom: 30
+  };
+  return (
+    /*#__PURE__*/
+    //Recommended to use the Link library from react-router-dom instead
+    //as it allows tracking activity of the user.
+    _react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", {
+      style: style
+    }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      to: "/"
+    }, "Home")), /*#__PURE__*/_react.default.createElement("h3", {
+      style: style
+    }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      to: "/jokes"
+    }, "Jokes"))), children) //Using anchor tags can achieve the same output however,
+    //It is highly not recommended as React does not work well
+    //with the anchor tags. By using this approach you will be
+    //restarting the state of the session each time a link is clicked
+    //Therefore, removing any tracking activity that was done on the site.
+    //Do take note this is very important as it would look as if the user
+    //entered the website for the first time. 
+    //Can be tested by adding a console.log in the render of the App component.
+    // <div>
+    //     <h3 style={style}><a href='/'>Home</a></h3>
+    //     <h3 style={style}><a href='./jokes'>Jokes</a></h3>
+    // </div>
+
+  );
+};
+
+var _default = Header;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
-var _App = _interopRequireDefault(require("./components/App"));
-
-var _Jokes = _interopRequireDefault(require("./components/Jokes"));
-
 var _reactRouterDom = require("react-router-dom");
 
 var _createBrowserHistory = _interopRequireDefault(require("history/createBrowserHistory"));
 
 require("./index.css");
+
+var _App = _interopRequireDefault(require("./components/App"));
+
+var _Jokes = _interopRequireDefault(require("./components/Jokes"));
+
+var _Header = _interopRequireDefault(require("./components/Header"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30285,6 +30284,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //without a history object the router code will not work as well because it cannot
 //track what is going on when a user enters the web application.
 //CSS can be imported directly to the javascript by importing the css file locally.
+//Component Import List
 _reactDom.default.render(
 /*#__PURE__*/
 //Don't have to create a history object if your only using it once. Can directly
@@ -30294,10 +30294,14 @@ _react.default.createElement(_reactRouterDom.Router, {
 }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
   exact: true,
   path: "/",
-  component: _App.default
+  render: function render() {
+    return /*#__PURE__*/_react.default.createElement(_Header.default, null, /*#__PURE__*/_react.default.createElement(_App.default, null));
+  }
 }), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
   path: "/jokes",
-  component: _Jokes.default
+  render: function render() {
+    return /*#__PURE__*/_react.default.createElement(_Header.default, null, /*#__PURE__*/_react.default.createElement(_Jokes.default, null));
+  }
 }))), document.getElementById('root')); //Under the hood example on how fetch method works.
 //A promise can be ues to resolve a process before doing other processes or 
 //use to catch errors that happen during that process.
@@ -30358,7 +30362,7 @@ lion1.speak();
 lion1.roar();
 console.log(lion1);
 */
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./components/App":"components/App.js","./components/Jokes":"components/Jokes.js","react-router-dom":"../node_modules/react-router-dom/es/index.js","history/createBrowserHistory":"../node_modules/history/createBrowserHistory.js","./index.css":"index.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js","history/createBrowserHistory":"../node_modules/history/createBrowserHistory.js","./index.css":"index.css","./components/App":"components/App.js","./components/Jokes":"components/Jokes.js","./components/Header":"components/Header.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

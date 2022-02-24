@@ -1,8 +1,6 @@
 //index.js is not a default file the index is a naming convention for this project default file.
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
-import Jokes from './components/Jokes';
 //This import library allows the use of components as other pages. ** Important as
 //this library is needed to have multiple pages on your React Application.  
 import {Router, Switch, Route} from 'react-router-dom';
@@ -14,6 +12,11 @@ import createBrowserHistory from 'history/createBrowserHistory';
 //CSS can be imported directly to the javascript by importing the css file locally.
 import './index.css';
 
+//Component Import List
+import App from './components/App';
+import Jokes from './components/Jokes';
+import Header from './components/Header';
+
 ReactDOM.render(
     //Don't have to create a history object if your only using it once. Can directly
     //apply method in the history keyword.
@@ -22,9 +25,14 @@ ReactDOM.render(
         {
         //By only putting the "exact" keyword we are actually putting exact={true}
         //as that is the keyword's default.
+
+        //Changing the component keyword to render keyword allows us to use a 
+        //function in the input instead of an object.
+        //Using the following function we can use the "Header High order component" we converted
+        //and apply it to the other components as seen in the render brackets.
         }
-        <Route exact path='/' component={App}/>
-        <Route path='/jokes' component={Jokes}/>
+        <Route exact path='/' render={() => <Header><App/></Header>}/>
+        <Route path='/jokes' render={() => <Header><Jokes/></Header>}/>
     </Switch>
 </Router>,
 document.getElementById('root'));
