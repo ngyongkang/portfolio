@@ -3,6 +3,7 @@ import Projects from './Projects';
 import Social_Media from "./Social_Media";
 import profile from "../assets/profile.png";
 import Title from "./Title";
+import Header from "./Header";
 
 class App extends Component
 {
@@ -65,8 +66,10 @@ class App extends Component
     //{this.state.displayBio ? <Title/>:null}
     render()
     {  
+        //console.log('hi'); //testing for header anchors.
         return(
             <div>
+                <Header />
                 <img src={profile} alt='profile' className="profile"/>
                 <h1>Hello!</h1>
                 <p>My name is Ng Yong Kang.</p>

@@ -24485,273 +24485,6 @@ var Title = /*#__PURE__*/function (_Component) {
 
 var _default = Title;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js"}],"components/App.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _Projects = _interopRequireDefault(require("./Projects"));
-
-var _Social_Media = _interopRequireDefault(require("./Social_Media"));
-
-var _profile = _interopRequireDefault(require("../assets/profile.png"));
-
-var _Title = _interopRequireDefault(require("./Title"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var App = /*#__PURE__*/function (_Component) {
-  _inherits(App, _Component);
-
-  var _super = _createSuper(App);
-
-  function App() {
-    var _this;
-
-    _classCallCheck(this, App);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      displayBio: false
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "toggleBio", function () {
-      /*
-      * This line of code allows the object state to change to the opposition option of it's
-      * currently stored option. For example, if displayBio state is false, the following
-      * code would change it to true and vice versa. 
-      */
-      _this.setState({
-        displayBio: !_this.state.displayBio
-      });
-    });
-
-    return _this;
-  }
-
-  _createClass(App, [{
-    key: "render",
-    value: //The line below can be put into where the <Title/> is to
-    //test the componentWillUnmount method.
-    //{this.state.displayBio ? <Title/>:null}
-    function render() {
-      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
-        src: _profile.default,
-        alt: "profile",
-        className: "profile"
-      }), /*#__PURE__*/_react.default.createElement("h1", null, "Hello!"), /*#__PURE__*/_react.default.createElement("p", null, "My name is Ng Yong Kang."), /*#__PURE__*/_react.default.createElement(_Title.default, null), /*#__PURE__*/_react.default.createElement("p", null, "I hope to learn valuable skills from this ReactJS course. :)"), this.state.displayBio ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "I live in Singapore and I just got hired as a programmer."), /*#__PURE__*/_react.default.createElement("p", null, "My main language is Java and I am currently learning React JS."), /*#__PURE__*/_react.default.createElement("p", null, "I don't really like coding much but these are some things I do like"), /*#__PURE__*/_react.default.createElement("p", null, "gaming, anime, kdrama, my family and of course girls"), /*#__PURE__*/_react.default.createElement("button", {
-        onClick: this.toggleBio
-      }, "Show less")) : /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
-        onClick: this.toggleBio
-      }, "Show more")), /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement(_Projects.default, null), /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement(_Social_Media.default, null));
-    }
-  }]);
-
-  return App;
-}(_react.Component);
-/*
-* The export default line allows other files in the codebase to access this component.
-* By delcaring this App component as the default export of the file. Other files will 
-* be able to import the app just like we imported react without the curly braces from
-* the react module.
-*/
-
-
-var _default = App;
-exports.default = _default;
-},{"react":"../node_modules/react/index.js","./Projects":"components/Projects.js","./Social_Media":"components/Social_Media.js","../assets/profile.png":"assets/profile.png","./Title":"components/Title.js"}],"components/Jokes.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _react = _interopRequireWildcard(require("react"));
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var Joke = function Joke(_ref) {
-  var joke = _ref.joke;
-  var setup = joke.setup,
-      delivery = joke.delivery;
-  return /*#__PURE__*/_react.default.createElement("p", null, setup, /*#__PURE__*/_react.default.createElement("em", null, delivery));
-};
-
-var Jokes = /*#__PURE__*/function (_Component) {
-  _inherits(Jokes, _Component);
-
-  var _super = _createSuper(Jokes);
-
-  function Jokes() {
-    var _this;
-
-    _classCallCheck(this, Jokes);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      joke: {},
-      jokes: []
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "refreshJoke", function () {
-      fetch('https://v2.jokeapi.dev/joke/Any').then(function (response) {
-        return response.json();
-      }).then(function (json) {
-        return _this.setState({
-          joke: json
-        });
-      }).catch(function (error) {
-        return alert(error.message);
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "fetchJokes", function () {
-      fetch('https://v2.jokeapi.dev/joke/Any?amount=10').then(function (response) {
-        return response.json();
-      }) //.then(json => console.log('json:',json))
-      //API was not in array format, was a nested object. This lead to the object becoming
-      //the wrong object type as we wanted an array object we were given an object
-      //which contains three different values instead. Therefore, there was an error in the code
-      //which did not allow us to use the map function as it is used for arrays only.
-      .then(function (json) {
-        return _this.setState({
-          jokes: json.jokes
-        });
-      }) //<---------------------- ** IMPORTANT** NESTED value.
-      .catch(function (error) {
-        return alert(error.message);
-      }); //Error checking message.
-      //.then(() => console.log(this.state.jokes)) for debugging.
-    });
-
-    return _this;
-  }
-
-  _createClass(Jokes, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      fetch('https://v2.jokeapi.dev/joke/Any') //fetch function to collect data from link.
-
-      /*The line below can be type like this ".then(response => {return response.json() })"
-       *basically it's the same as returning the response but doing it "inline"
-       */
-      .then(function (response) {
-        return response.json();
-      }) //Getting json response from hyperlink.
-      //.then(json => console.log('json:',json)); //For checking the json response.
-      .then(function (json) {
-        return _this2.setState({
-          joke: json
-        });
-      }).catch(function (error) {
-        return alert(error.message);
-      }); //Sets the joke
-      //from the fetch request you can see that there is a chain syntax,
-      //that is because on the second line we are getting back a promise as well.
-      //Therefore, we are are able to chain the third line because we are 
-      //trying to get the values out of the "JSON" portion of the promise.
-      //Similar to a nested function.?.?
-    } //Remember to set up callback function for the new function. ** similar to declaring
-    //a void function in java. public static void "Function name"
-
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$state$joke = this.state.joke,
-          setup = _this$state$joke.setup,
-          delivery = _this$state$joke.delivery;
-      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Highlighted Joke"), /*#__PURE__*/_react.default.createElement(Joke, {
-        joke: this.state.joke
-      }), /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement("button", {
-        onClick: this.fetchJokes
-      }, "Click for more jokes  "), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), this.state.jokes.map(function (joke) {
-        return /*#__PURE__*/_react.default.createElement(Joke, {
-          key: joke.id,
-          joke: joke
-        });
-      })); //Remember not to directly call function in event handlers because as the site is 
-      //rendering, the event is fired every render which would lead to a loop of
-      //function fire and render.
-    }
-  }]);
-
-  return Jokes;
-}(_react.Component);
-
-var _default = Jokes;
-exports.default = _default;
 },{"react":"../node_modules/react/index.js"}],"../node_modules/warning/warning.js":[function(require,module,exports) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
@@ -29536,7 +29269,333 @@ var _matchPath2 = _interopRequireDefault(require("./matchPath"));
 var _withRouter2 = _interopRequireDefault(require("./withRouter"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./BrowserRouter":"../node_modules/react-router-dom/es/BrowserRouter.js","./HashRouter":"../node_modules/react-router-dom/es/HashRouter.js","./Link":"../node_modules/react-router-dom/es/Link.js","./MemoryRouter":"../node_modules/react-router-dom/es/MemoryRouter.js","./NavLink":"../node_modules/react-router-dom/es/NavLink.js","./Prompt":"../node_modules/react-router-dom/es/Prompt.js","./Redirect":"../node_modules/react-router-dom/es/Redirect.js","./Route":"../node_modules/react-router-dom/es/Route.js","./Router":"../node_modules/react-router-dom/es/Router.js","./StaticRouter":"../node_modules/react-router-dom/es/StaticRouter.js","./Switch":"../node_modules/react-router-dom/es/Switch.js","./generatePath":"../node_modules/react-router-dom/es/generatePath.js","./matchPath":"../node_modules/react-router-dom/es/matchPath.js","./withRouter":"../node_modules/react-router-dom/es/withRouter.js"}],"../node_modules/history/PathUtils.js":[function(require,module,exports) {
+},{"./BrowserRouter":"../node_modules/react-router-dom/es/BrowserRouter.js","./HashRouter":"../node_modules/react-router-dom/es/HashRouter.js","./Link":"../node_modules/react-router-dom/es/Link.js","./MemoryRouter":"../node_modules/react-router-dom/es/MemoryRouter.js","./NavLink":"../node_modules/react-router-dom/es/NavLink.js","./Prompt":"../node_modules/react-router-dom/es/Prompt.js","./Redirect":"../node_modules/react-router-dom/es/Redirect.js","./Route":"../node_modules/react-router-dom/es/Route.js","./Router":"../node_modules/react-router-dom/es/Router.js","./StaticRouter":"../node_modules/react-router-dom/es/StaticRouter.js","./Switch":"../node_modules/react-router-dom/es/Switch.js","./generatePath":"../node_modules/react-router-dom/es/generatePath.js","./matchPath":"../node_modules/react-router-dom/es/matchPath.js","./withRouter":"../node_modules/react-router-dom/es/withRouter.js"}],"components/Header.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//Header component is similar to a navbar however, it can retain session information.
+var Header = function Header() {
+  //Custom styling for this component.
+  var style = {
+    display: 'inline-block',
+    margin: 10,
+    marginBottom: 30
+  };
+  return (
+    /*#__PURE__*/
+    //Recommended to use the Link library from react-router-dom instead
+    //as it allows tracking activity of the user.
+    _react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", {
+      style: style
+    }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      to: "/"
+    }, "Home")), /*#__PURE__*/_react.default.createElement("h3", {
+      style: style
+    }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+      to: "/jokes"
+    }, "Jokes"))) //Using anchor tags can achieve the same output however,
+    //It is highly not recommended as React does not work well
+    //with the anchor tags. By using this approach you will be
+    //restarting the state of the session each time a link is clicked
+    //Therefore, removing any tracking activity that was done on the site.
+    //Do take note this is very important as it would look as if the user
+    //entered the website for the first time. 
+    //Can be tested by adding a console.log in the render of the App component.
+    // <div>
+    //     <h3 style={style}><a href='/'>Home</a></h3>
+    //     <h3 style={style}><a href='./jokes'>Jokes</a></h3>
+    // </div>
+
+  );
+};
+
+var _default = Header;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js"}],"components/App.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _Projects = _interopRequireDefault(require("./Projects"));
+
+var _Social_Media = _interopRequireDefault(require("./Social_Media"));
+
+var _profile = _interopRequireDefault(require("../assets/profile.png"));
+
+var _Title = _interopRequireDefault(require("./Title"));
+
+var _Header = _interopRequireDefault(require("./Header"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var App = /*#__PURE__*/function (_Component) {
+  _inherits(App, _Component);
+
+  var _super = _createSuper(App);
+
+  function App() {
+    var _this;
+
+    _classCallCheck(this, App);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      displayBio: false
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "toggleBio", function () {
+      /*
+      * This line of code allows the object state to change to the opposition option of it's
+      * currently stored option. For example, if displayBio state is false, the following
+      * code would change it to true and vice versa. 
+      */
+      _this.setState({
+        displayBio: !_this.state.displayBio
+      });
+    });
+
+    return _this;
+  }
+
+  _createClass(App, [{
+    key: "render",
+    value: //The line below can be put into where the <Title/> is to
+    //test the componentWillUnmount method.
+    //{this.state.displayBio ? <Title/>:null}
+    function render() {
+      //console.log('hi'); //testing for header anchors.
+      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement("img", {
+        src: _profile.default,
+        alt: "profile",
+        className: "profile"
+      }), /*#__PURE__*/_react.default.createElement("h1", null, "Hello!"), /*#__PURE__*/_react.default.createElement("p", null, "My name is Ng Yong Kang."), /*#__PURE__*/_react.default.createElement(_Title.default, null), /*#__PURE__*/_react.default.createElement("p", null, "I hope to learn valuable skills from this ReactJS course. :)"), this.state.displayBio ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "I live in Singapore and I just got hired as a programmer."), /*#__PURE__*/_react.default.createElement("p", null, "My main language is Java and I am currently learning React JS."), /*#__PURE__*/_react.default.createElement("p", null, "I don't really like coding much but these are some things I do like"), /*#__PURE__*/_react.default.createElement("p", null, "gaming, anime, kdrama, my family and of course girls"), /*#__PURE__*/_react.default.createElement("button", {
+        onClick: this.toggleBio
+      }, "Show less")) : /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
+        onClick: this.toggleBio
+      }, "Show more")), /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement(_Projects.default, null), /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement(_Social_Media.default, null));
+    }
+  }]);
+
+  return App;
+}(_react.Component);
+/*
+* The export default line allows other files in the codebase to access this component.
+* By delcaring this App component as the default export of the file. Other files will 
+* be able to import the app just like we imported react without the curly braces from
+* the react module.
+*/
+
+
+var _default = App;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./Projects":"components/Projects.js","./Social_Media":"components/Social_Media.js","../assets/profile.png":"assets/profile.png","./Title":"components/Title.js","./Header":"components/Header.js"}],"components/Jokes.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _Header = _interopRequireDefault(require("./Header"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Joke = function Joke(_ref) {
+  var joke = _ref.joke;
+  var setup = joke.setup,
+      delivery = joke.delivery;
+  return /*#__PURE__*/_react.default.createElement("p", null, setup, /*#__PURE__*/_react.default.createElement("em", null, delivery));
+};
+
+var Jokes = /*#__PURE__*/function (_Component) {
+  _inherits(Jokes, _Component);
+
+  var _super = _createSuper(Jokes);
+
+  function Jokes() {
+    var _this;
+
+    _classCallCheck(this, Jokes);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      joke: {},
+      jokes: []
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "refreshJoke", function () {
+      fetch('https://v2.jokeapi.dev/joke/Any').then(function (response) {
+        return response.json();
+      }).then(function (json) {
+        return _this.setState({
+          joke: json
+        });
+      }).catch(function (error) {
+        return alert(error.message);
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "fetchJokes", function () {
+      fetch('https://v2.jokeapi.dev/joke/Any?amount=10').then(function (response) {
+        return response.json();
+      }) //.then(json => console.log('json:',json))
+      //API was not in array format, was a nested object. This lead to the object becoming
+      //the wrong object type as we wanted an array object we were given an object
+      //which contains three different values instead. Therefore, there was an error in the code
+      //which did not allow us to use the map function as it is used for arrays only.
+      .then(function (json) {
+        return _this.setState({
+          jokes: json.jokes
+        });
+      }) //<---------------------- ** IMPORTANT** NESTED value.
+      .catch(function (error) {
+        return alert(error.message);
+      }); //Error checking message.
+      //.then(() => console.log(this.state.jokes)) for debugging.
+    });
+
+    return _this;
+  }
+
+  _createClass(Jokes, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      fetch('https://v2.jokeapi.dev/joke/Any') //fetch function to collect data from link.
+
+      /*The line below can be type like this ".then(response => {return response.json() })"
+       *basically it's the same as returning the response but doing it "inline"
+       */
+      .then(function (response) {
+        return response.json();
+      }) //Getting json response from hyperlink.
+      //.then(json => console.log('json:',json)); //For checking the json response.
+      .then(function (json) {
+        return _this2.setState({
+          joke: json
+        });
+      }).catch(function (error) {
+        return alert(error.message);
+      }); //Sets the joke
+      //from the fetch request you can see that there is a chain syntax,
+      //that is because on the second line we are getting back a promise as well.
+      //Therefore, we are are able to chain the third line because we are 
+      //trying to get the values out of the "JSON" portion of the promise.
+      //Similar to a nested function.?.?
+    } //Remember to set up callback function for the new function. ** similar to declaring
+    //a void function in java. public static void "Function name"
+
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$state$joke = this.state.joke,
+          setup = _this$state$joke.setup,
+          delivery = _this$state$joke.delivery;
+      return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Header.default, null), /*#__PURE__*/_react.default.createElement("h2", null, "Highlighted Joke"), /*#__PURE__*/_react.default.createElement(Joke, {
+        joke: this.state.joke
+      }), /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement("button", {
+        onClick: this.fetchJokes
+      }, "Click for more jokes  "), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), this.state.jokes.map(function (joke) {
+        return /*#__PURE__*/_react.default.createElement(Joke, {
+          key: joke.id,
+          joke: joke
+        });
+      })); //Remember not to directly call function in event handlers because as the site is 
+      //rendering, the event is fired every render which would lead to a loop of
+      //function fire and render.
+    }
+  }]);
+
+  return Jokes;
+}(_react.Component);
+
+var _default = Jokes;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","./Header":"components/Header.js"}],"../node_modules/history/PathUtils.js":[function(require,module,exports) {
 'use strict';
 
 exports.__esModule = true;
