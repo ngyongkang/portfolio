@@ -2,10 +2,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
+import Jokes from './components/Jokes';
+//This import library allows the use of components as other pages. ** Important as
+//this library is needed to have multiple pages on your React Application.  
+import {Router, Switch, Route} from 'react-router-dom';
+//library to allow the creation of a "history" object. ** Important as well
+//because you need a history object to keep track of a user's activity on the site
+//without a history object the router code will not work as well because it cannot
+//track what is going on when a user enters the web application.
+import createBrowserHistory from 'history/createBrowserHistory';
 //CSS can be imported directly to the javascript by importing the css file locally.
 import './index.css';
 
-ReactDOM.render(<App/>,document.getElementById('root'));
+ReactDOM.render(
+    //Don't have to create a history object if your only using it once. Can directly
+    //apply method in the history keyword.
+<Router history={createBrowserHistory()}>
+    <Switch>
+        {
+        //By only putting the "exact" keyword we are actually putting exact={true}
+        //as that is the keyword's default.
+        }
+        <Route exact path='/' component={App}/>
+        <Route path='/jokes' component={Jokes}/>
+    </Switch>
+</Router>,
+document.getElementById('root'));
 
 //Under the hood example on how fetch method works.
 //A promise can be ues to resolve a process before doing other processes or 
